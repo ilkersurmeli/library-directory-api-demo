@@ -1,0 +1,36 @@
+
+<div class="ld-widget ld-library-search">
+    <div class="search header">
+        <form class="form-search" class="ld-search-form">
+            <input class="search-query" type="text" name="search"
+                placeholder="Search for libraries by name or city" value="<%= phrase %>"/>
+            <button class="btn btn-primary" type="submit">Go</button>
+        </form>
+    </div>
+    <div class="results">
+        <ul>
+            <% if (libraries.isEmpty().value()) { %>
+                <% if (phrase.length > 0) { %>
+                    <li>No results</li>
+                <% } else { %>
+                    <li>Search for libraries</li>
+                <% } %>
+            <% } else { %>
+                <% libraries.each(function(library) { %>
+                    <li class="result" data-id="<%= library.id %>">
+                        <div class="thumb">
+                            <% if (library.picture()) { %>
+                                <img src="<%= library.picture().files.small %>"
+                                    alt="<%= library.picture().name %>"/>
+                            <% } %>
+                        </div>
+                        <div class="info">
+                            <a><%= library.get('name') %></a>
+                            <p><%= library.address() %></a>
+                        </div>
+                    </li>
+                <% }) %>
+            <% } %>
+        </ul>
+    </div>
+</div>
