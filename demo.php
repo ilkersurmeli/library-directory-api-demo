@@ -45,7 +45,8 @@
             urlArgs: (new Date()).getTime()
         });
 
-        requirejs(['libdir/widget', 'libdir/model'], function(BaseWidget, BaseModel) {
+        requirejs(['libdir/widget', 'libdir/model'],
+        function(BaseWidget, BaseModel) {
             BaseWidget.configure({
                 prefix: 'libdir/templates/'
             });
@@ -54,15 +55,8 @@
             BaseModel.setDefaultUrlRoot('proxy.php?');
         });
 
-        requirejs(['libdir/schedules/widget'],
-        function(Schedules) {
-            var widget = new Schedules({
-                libraryId: 'goQMRZg5TEOmxx1cibj--A'
-            });
-            widget.install('#schedules-demo');
-        });
-
-        requirejs(['libdir/libraries/search', 'libdir/libraries/gallery'], function(Search, Gallery) {
+        requirejs(['libdir/libraries/search', 'libdir/libraries/gallery', 'libdir/schedules/weekly'],
+        function(Search, Gallery, Schedules) {
             var searchWidget = new Search();
             searchWidget.install('#library-search');
 
@@ -71,7 +65,14 @@
             });
             galleryWidget.install('#library-gallery');
 
+            var schedulesWidget = new Schedules({
+                libraryId: 'goQMRZg5TEOmxx1cibj--A',
+                week: 20
+            });
+            schedulesWidget.install('#library-schedules');
+
             searchWidget.on('librarySelected', galleryWidget.showLibrary.bind(galleryWidget));
+            searchWidget.on('libraryIdSelected', schedulesWidget.showLibrary.bind(schedulesWidget));
         });
     </script>
 </head>
@@ -82,9 +83,11 @@
     <div id="l-main">
         <div class="grid">
             <div class="row-fluid">
-                <div id="library-search" class="span6"></div>
+                <div id="library-search" class="span12"></div>
+            </div>
+            <div class="row-fluid">
                 <div id="library-gallery" class="span6"></div>
-<!--                 <div id="schedules-demo" class="span4"></div> -->
+                <div id="library-schedules" class="span6"></div>
             </div>
         </div>
     </div>

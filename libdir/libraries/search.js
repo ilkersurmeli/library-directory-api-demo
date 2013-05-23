@@ -12,6 +12,7 @@ function($, Backbone, _, LibdirWidget, LibraryCollection) {
             'click .result a': function(e) {
                 var id = $(e.currentTarget).closest('.result').data('id');
                 this.trigger('librarySelected', this.libraries.get(id));
+                this.trigger('libraryIdSelected', id);
             },
         },
         init: function() {

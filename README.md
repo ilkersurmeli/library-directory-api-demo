@@ -1,4 +1,4 @@
 library-directory-api-demo
 ==========================
 
-Demo widgets for Library Directory API
+Demo widgets for Library Directory API.

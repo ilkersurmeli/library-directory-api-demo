@@ -2,7 +2,7 @@
 define(['jquery', 'backbone', 'underscore', 'libdir/widget', 'libdir/schedules/collection'],
 function($, Backbone, _, LibdirWidget, SchedulesCollection) {
     return LibdirWidget.extend({
-        template: 'schedules.html',
+        template: 'schedules.weekly.html',
         events: {
             'click .prev': function() {
                 this.showWeek(this.week() - 1);
@@ -18,31 +18,32 @@ function($, Backbone, _, LibdirWidget, SchedulesCollection) {
                 }
             }
         },
+        showLibrary: function(id, week) {
+            if (week) {
+                this.schedules.options.week = week;
+            }
+
+            this.schedules.options.libraryId = id;
+            this.schedules.fetch({ reset: true });
+
+        },
         showWeek: function(nr) {
             this.schedules.options.week = nr;
-            this.schedules.fetch({
-                reset: true,
-                success: function() {
-//                     console.log('OK');
-                },
-                error: function() {
-                    console.log('ERROR');
-                }
-            });
+            this.schedules.fetch({ reset: true });
         },
         week: function() {
             return parseInt(this.schedules.options.week);
         },
         init: function() {
-            var library_id = this.options.libraryId;
-
-            this.schedules = new SchedulesCollection([], {
-                libraryId: this.options.libraryId,
-                week: 20
-            });
-
+            this.schedules = new SchedulesCollection();
             this.schedules.on('reset', this.render.bind(this));
-            this.showWeek(20);
+
+            var library_id = this.options.libraryId;
+            var week = this.options.week;
+
+            if (library_id) {
+                this.showLibrary(library_id, week);
+            }
         },
         serialize: function() {
             return {

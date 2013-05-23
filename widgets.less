@@ -21,7 +21,28 @@
             margin: 0 10px;
         }
     }
+
+    .itemlist {
+        padding: 10px;
+        margin: 0;
+
+        li {
+            padding: 10px;
+            margin: 0;
+            list-style-type: none;
+        }
+    }
+
+    .itemlist-striped {
+        li {
+            &:nth-child(even) {
+                border-top: 1px solid #ddd;
+                border-bottom: 1px solid #d5d5d5;
+            }
+        }
+    }
 }
 
-@import 'less/libraries.search.less';
-@import 'less/libraries.gallery.less';
+@import 'libdir/styles/libraries.search.less';
+@import 'libdir/styles/libraries.gallery.less';
+@import 'libdir/styles/schedules.weekly.less';

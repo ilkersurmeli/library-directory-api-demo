@@ -1,9 +1,8 @@
 
-<div class="ld-widget ld-schedules">
-    <div class="hud ld-header">
+<div class="ld-widget ld-schedules-weekly">
+    <div class="header">
         <div class="title">
-            <span>Week</span>
-            <span><%= week %></span>
+            <h1>Week <span class="week"><%= week %></span></h1>
         </div>
         <div class="controls">
             <button class="btn prev" type="button">&lt;&lt;</button>
@@ -11,7 +10,7 @@
         </div>
     </div>
     <div class="schedules">
-        <ul>
+        <ul class="itemlist itemlist-striped">
             <% if (days.isEmpty().value()) { %>
                 <li>Empty</li>
             <% } else { %>
