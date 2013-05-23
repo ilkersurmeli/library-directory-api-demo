@@ -1,6 +1,7 @@
 <?php
 
 return array(
-    'api' => 'http://api.kirjastot.fi/v2'
+    'api' => 'http://api.kirjastot.fi/v2',
+    'client' => 'kifidemo/1.0',
 );
 

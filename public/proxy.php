@@ -6,6 +6,7 @@
  */
 
 $config = require '../config.php';
+$get = array('client' => $config['client']);
 
 function get_command() {
     if (empty($_GET['q'])) {
@@ -15,15 +16,15 @@ function get_command() {
     return $_GET['q'];
 }
 
-function get_query() {
-    $get = $_GET;
+function get_query($vars = array()) {
+    $get = $_GET + $vars;
     unset($get['q']);
     return $get;
 }
 
-function get_query_string() {
+function get_query_string($vars = array()) {
     $qs = array();
-    foreach (get_query() as $key => $value) {
+    foreach (get_query($vars) as $key => $value) {
         $qs[] = sprintf('%s=%s', urlencode($key), urlencode($value));
     }
     return '?' . implode('&', $qs);
@@ -31,7 +32,7 @@ function get_query_string() {
 
 // header('Content-Type: application/json');
 
-$url = rtrim($config['api'], '/') . get_command() . get_query_string();
+$url = rtrim($config['api'], '/') . get_command() . get_query_string($get);
 $curl = curl_init();
 
 ob_start();
