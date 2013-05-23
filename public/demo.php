@@ -79,6 +79,8 @@
 <body>
     <header id="l-header">
         <h1>Widget Demos</h1>
+        <p>Documentation at <a href="http://api.kirjastot.fi">api.kirjastot.fi</a></p>
+        <p>Source at <a href="https://github.com/libraries-fi/library-directory-api-demo">GitHub</a></p>
     </header>
     <div id="l-main">
         <div class="grid">
