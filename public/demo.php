@@ -42,7 +42,7 @@
             },
 
             // Debug: prevent caching
-            urlArgs: (new Date()).getTime()
+            // urlArgs: (new Date()).getTime()
         });
 
         requirejs(['libdir/widget', 'libdir/model'],

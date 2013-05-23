@@ -4,7 +4,7 @@ define(['jquery', 'backbone', 'underscore', 'layoutmanager'], function($, Backbo
         root: 'foobar',
         fetch: function(url) {
             var async = this.async();
-            $.get(url + '?' + (new Date()).getTime(), function(data) {
+            $.get(url, function(data) {
                 async(_.template(data));
             }, 'text');
         },
