@@ -10,8 +10,8 @@
     </style>
 
     <style type="text/less">
-        @import url('layout.less');
-        @import url('widgets.less');
+        @import url('styles/layout.less');
+        @import url('libdir/styles/widgets.less');
     </style>
 
     <script src="lib/jquery/2.0/jquery-2.0.0.min.js"></script>
