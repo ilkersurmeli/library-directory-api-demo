@@ -34,11 +34,15 @@ function get_query_string($vars = array()) {
 
 $url = rtrim($config['api'], '/') . get_command() . get_query_string($get);
 $curl = curl_init();
+$headers = array(
+    'Accept: application/json',
+    'User-Agent: ' . $config['user_agent'],
+);
 
 ob_start();
 
 curl_setopt($curl, CURLOPT_URL, $url);
-curl_setopt($curl, CURLOPT_HTTPHEADER, array('Accept: application/json'));
+curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
 curl_setopt($curl, CURLOPT_HEADER, true);
 curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
 // curl_setopt($curl, CURLINFO_HEADER_OUT, true);

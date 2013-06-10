@@ -3,5 +3,6 @@
 return array(
     'api' => 'http://api.kirjastot.fi/v2',
     'client' => 'kifidemo/1.0',
+    'user_agent' => 'KifiDemo/1.0',
 );
 
