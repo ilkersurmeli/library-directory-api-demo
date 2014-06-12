@@ -1,40 +1,40 @@
 
 <div class="ld-widget ld-schedules-weekly">
-    <div class="header">
-        <div class="title">
-            <h1>Week <span class="week"><%= week %></span></h1>
-        </div>
-        <div class="controls">
-            <button class="btn prev" type="button">&lt;&lt;</button>
-            <button class="btn next" type="button">&gt;&gt;</button>
-        </div>
+  <div class="header">
+    <div class="title">
+      <h1>Week <span class="week"><%= week %></span></h1>
     </div>
-    <div class="schedules">
-        <ul class="itemlist itemlist-striped">
-            <% if (days.isEmpty().value()) { %>
-                <li>Empty</li>
-            <% } else { %>
-                <% days.each(function(day) { %>
-                    <% if (day.isClosed()) { %>
-                        <li class="closed">
-                    <% } else { %>
-                        <li>
-                    <% } %>
-                        <div class="date">
-                            <span class="name"><%= day.shortName() %></span>
-                            <span class="date"><%= day.shortDate() %></span>
-                        </div>
-                        <div class="schedule">
-                            <% if (day.isClosed()) { %>
-                                <span class="closed">Closed</span>
-                            <% } else { %>
-                                <span class="opens"><%= day.get('opens') %></span>
-                                <span class="closes"><%= day.get('closes') %></span>
-                            <% } %>
-                        </div>
-                    </li>
-                <% }) %>
-            <% } %>
-        </ul>
+    <div class="controls">
+      <button class="btn prev" type="button">&lt;&lt;</button>
+      <button class="btn next" type="button">&gt;&gt;</button>
     </div>
+  </div>
+  <div class="schedules">
+    <ul class="itemlist itemlist-striped">
+      <% if (days.isEmpty().value()) { %>
+        <li>Empty</li>
+      <% } else { %>
+        <% days.each(function(day) { %>
+          <% if (day.isClosed()) { %>
+            <li class="closed">
+          <% } else { %>
+            <li>
+          <% } %>
+            <div class="date">
+              <span class="name"><%= day.shortName() %></span>
+              <span class="date"><%= day.shortDate() %></span>
+            </div>
+            <div class="schedule">
+              <% if (day.isClosed()) { %>
+                <span class="closed">Closed</span>
+              <% } else { %>
+                <span class="opens"><%= day.get('opens') %></span>
+                <span class="closes"><%= day.get('closes') %></span>
+              <% } %>
+            </div>
+          </li>
+        <% }) %>
+      <% } %>
+    </ul>
+  </div>
 </div>
