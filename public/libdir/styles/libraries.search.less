@@ -1,57 +1,57 @@
 
 .border-box() {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sixing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sixing: border-box;
 }
 
 .ld-library-search {
-    .search {
-        position: relative;
+  .search {
+    position: relative;
 
-        form {
-            margin-bottom: 0;
-        }
-        input {
-            width: 100%;
-            height: 2em;
-
-            .border-box();
-        }
-        button {
-            position: absolute;
-            right: 0;
-            top: 5px;
-            bottom: 6px;
-            right: 5px;
-            padding-right: 15px;
-            border-top-right-radius: 15px;
-            border-bottom-right-radius: 15px;
-        }
+    form {
+      margin-bottom: 0;
     }
-    .results {
-        max-height: 400px;
-        overflow-y: auto;
+    input {
+      width: 100%;
+      height: 2em;
 
-        ul {
-            li {
-                &:nth-child(even) {
-                    background-color: #eee;
-                }
-
-                .thumb {
-                    width: 100px;
-                    max-height: 67px;
-                    display: inline-block;
-                    margin-right: 5px;
-                    overflow: hidden;
-                }
-
-                .info {
-                    display: inline-block;
-                    vertical-align: middle;
-                }
-            }
-        }
+      .border-box();
     }
+    button {
+      position: absolute;
+      right: 0;
+      top: 5px;
+      bottom: 6px;
+      right: 5px;
+      padding-right: 15px;
+      border-top-right-radius: 15px;
+      border-bottom-right-radius: 15px;
+    }
+  }
+  .results {
+    max-height: 400px;
+    overflow-y: auto;
+
+    ul {
+      li {
+        &:nth-child(even) {
+          background-color: #eee;
+        }
+
+        .thumb {
+          width: 100px;
+          max-height: 67px;
+          display: inline-block;
+          margin-right: 5px;
+          overflow: hidden;
+        }
+
+        .info {
+          display: inline-block;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
 }
